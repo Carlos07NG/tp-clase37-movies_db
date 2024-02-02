@@ -1,5 +1,6 @@
 const db = require('../database/models');
 const Sequelize = require('sequelize');
+const Op = Sequelize.Op; //para definir una variedad de operadores que se pueden utilizar en consultas,
 
 
 module.exports = {
@@ -33,7 +34,7 @@ module.exports = {
             limit :10,
             where: {
                 rating: {
-                  [Sequelize.Op.gt]: 8,
+                  [Op.gt]: 8,
                 },
               },
         }).then(movies => {
